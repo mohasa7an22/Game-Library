@@ -36,7 +36,7 @@ express
 | GET    | /               | Homepage         |
 |--------|-----------------|------------------|
 | GET    | /games          | list all games   |
-| GET    | /games/:userId  | list users games |
+| GET    | /games/mygames  | list users games |
 | GET    | /games/new      | add new game     |
 | POST   | /games          | create listing   |
 | GET    | /games/:id      | View game        |
