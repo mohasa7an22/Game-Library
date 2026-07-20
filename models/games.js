@@ -22,7 +22,7 @@ const gamesSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    reviews:{
+    gameReviews:{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Review"
     }

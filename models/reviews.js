@@ -1,0 +1,32 @@
+const mongoose = require('mongoose')
+
+// Schema
+const reviewSchema = new mongoose.Schema({
+    title: {
+        type: String,
+        required: true,
+        maxLength: 100
+    },
+    reviewBody: {
+        type: String,
+        maxLength: 350,
+    },
+    reviewStatus: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Games"
+    },
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    },
+    reviewedGame: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Games"
+    }
+
+}, { timestamps: true })
+
+// model
+const Entry = mongoose.model('Entry', entrySchema)
+
+module.exports = Entry
