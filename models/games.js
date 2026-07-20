@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 
 // Schema
-const gamesSchema = new mongoose.Schema({
+const gameSchema = new mongoose.Schema({
     name:{
         type: String,
         required: true
@@ -30,6 +30,6 @@ const gamesSchema = new mongoose.Schema({
 
 
 // model
-const Games = mongoose.model('Games',gamesSchema)
+const Game = mongoose.model('Games',gameSchema)
 
-module.exports = Games
+module.exports = Game
