@@ -13,6 +13,7 @@
   "description": "Game Library is a full stack website\r ## Screenshots",
   "dependencies": {
     "bcrypt": "^6.0.0",
+    "cloudinary": "^1.41.3",
     "connect-mongo": "^6.0.0",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
@@ -23,6 +24,7 @@
     "mongoose": "^9.1.2",
     "morgan": "^1.10.1",
     "multer": "^2.2.0",
+    "multer-storage-cloudinary": "^4.0.0",
     "nodemailer": "^9.0.3"
   },
   "repository": {

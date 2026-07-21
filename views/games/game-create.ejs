@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>Create Game</h1>
+
+    <form action="/games" method="POST">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+
+        <label for="genre">Genre</label>
+        <select name="genre" id="genre" required>
+            <option value="" disabled selected>Select a genre</option>
+            <option value="Action">Action</option>
+            <option value="Platform">Platform</option>
+            <option value="Shooter">Shooter</option>
+            <option value="Fighting">Fighting</option>
+            <option value="Beat'em up ">Beat'em up</option>
+            <option value="stealth">Stealth</option>
+            <option value="Survival">Survival</option>
+            <option value="Rhythm">Rhythm</option>
+            <option value="Battle Royale">Battle Royale</option>
+            <option value="MetroidVania">MetroidVania</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Visual Novel">Visual Novel</option>
+            <option value="Puzzle">Puzzle</option>
+            <option value="RPG">RPG</option>
+            <option value="Horror">Horror</option>
+            <option value="Rougelikes">Rougelikes</option>
+            <option value="Rougelites">Rougelites</option>
+            <option value="Soulslike">Soulslike</option>
+            <option value="Simulation">Simulation</option>
+            <option value="Tower Defense">Tower Defense</option>
+            <option value="Racing">Racing</option>
+            <option value="Indie">Indie</option>
+            <option value="Gacha">Gacha</option>
+            <option value="Party">Party</option>
+        </select>
+
+        <label for="image">Image URL</label>
+        <input type="text" name="image" id="image">
+
+        <label for="platfrom">Platform</label>
+        <select name="platfrom" id="platfrom" required>
+            <option value="" disabled selected>Select a platform</option>
+            <option value="Steam">Steam</option>
+            <option value="Epic Games">Epic Games</option>
+            <option value="Gog">Gog</option>
+            <option value="Rockstar">Rockstar</option>
+            <option value="Playstation 1">Playstation 1</option>
+            <option value="Playstation 2">Playstation 2</option>
+            <option value="Playstation 3">Playstation 3</option>
+            <option value="Playstation 4">Playstation 4</option>
+            <option value="Playstation 5">Playstation 5</option>
+            <option value="Xbox 1">Xbox 1</option>
+            <option value="Xbox series X">Xbox series X</option>
+            <option value="Nintendo Switch">Nintendo Switch</option>
+            <option value="Nintendo Switch 2">Nintendo Switch 2</option>
+        </select>
+
+        <label for="status">Status</label>
+        <select name="status" id="status" required>
+            <option value="" disabled selected>Select a status</option>
+            <option value="Did not start">Did not start</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Dropped">Dropped</option>
+            <option value="Finished">Finished</option>
+        </select>
+
+        <button type="submit">Add Game</button>
+
+    </form>
+</body>
+</html>

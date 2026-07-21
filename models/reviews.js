@@ -5,16 +5,17 @@ const reviewSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        maxLength: 100
+        maxLength: 50
     },
     reviewBody: {
         type: String,
         maxLength: 350,
     },
-    reviewStatus: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Games"
-    },
+    // reviewStatus: {
+    //     type: String,
+    //     required: true,
+    //     enum:["Did not start","In Progress", "Dropped","Finished"]
+    // },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

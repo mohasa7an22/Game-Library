@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>Edit Game</h1>
+
+    <form action="/games/<%= game._id %>?_method=PUT" method="post">
+        <label for="name">Name:</label>
+        <input value="<%= game.name %>" name="name" id="name" type="text">
+
+        <label for="isItFinished">Is it finished?</label>
+        <input <% if(game.isItFinished){ %> checked <% }%> name="isItFinished" id="isItFinished" type="checkbox">
+
+        <button type="submit">Update game</button>
+    </form>
+</body>
+</html>

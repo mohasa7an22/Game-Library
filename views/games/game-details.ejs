@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>Game Details</h1>
+
+    <p>Name: <%= game.name %></p>
+    <% if(game.isItFinished) {%>
+        <p>Game is finished !</p>
+    <%} else{ %>
+        <p>You did not finish the game!</p>
+
+    <% }%>
+    <p>Category: <%= game.category %></p>
+
+    <form action="/game/<%= game._id %>?_method=DELETE" method="post">
+        <button>Delete game</button>
+    </form>
+
+    <form action="/games/<%= game._id %>/edit" method="get">
+        <button>Update game</button>
+    </form>
+</body>
+</html>

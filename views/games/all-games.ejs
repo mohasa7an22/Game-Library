@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <%- include('../partials/navbar') %>
+    <h1>All Games</h1>
+
+    <% for(let oneGame of games){ %>
+        <p> <%= oneGame.name %> </p>
+        <a href="/games/<%=oneGame._id%>">Show Game Details</a>
+    <% } %>
+</body>
+</html>
