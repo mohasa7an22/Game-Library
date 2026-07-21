@@ -2,8 +2,6 @@
 const express = require("express") //importing express package
 const app = express() // creates a express application
 const dotenv = require("dotenv").config() //this allows me to use my .env values in this file
-const cloudinary = require('cloudinary').v2
-import { v2 as cloudinary } from 'cloudinary';
 const morgan = require('morgan')
 const session = require('express-session');
 const methodOverride = require('method-override')

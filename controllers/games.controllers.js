@@ -10,9 +10,8 @@ router.get('/new', (req,res)=>{
     res.render('games/game-create.ejs')
 })
 
-router.post('/', isSignedIn, async (req,res)=>{
-
-    try{
+router.post('/', isSignedIn,  async (req, res) => {
+    try {
         const createdGame = await Games.create({
             name: req.body.name,
             genre: req.body.genre,
@@ -44,7 +43,7 @@ router.get('/:id', async (req,res)=>{
 
 
 
-router.delete('/:id',async(req,res)=>{
+router.delete('/:id', isSignedIn , async(req,res)=>{
     await Games.findByIdAndDelete(req.params.id)
     res.redirect('/games')
 })
@@ -52,13 +51,13 @@ router.delete('/:id',async(req,res)=>{
 
 
 
-router.get('/:id/edit', async (req,res)=>{
+router.get('/:id/edit', isSignedIn, async (req,res)=>{
     const foundGames = await Games.findById(req.params.id)
     res.render('games/edit-game.ejs', {game: foundGames})
 })
 
 
-router.put('/:id',async (req,res,)=>{
+router.put('/:id', isSignedIn, async (req,res,)=>{
     const updatedGame = await Games.findByIdAndUpdate(req.params.id, req.body)
     res.redirect('/games')
 })
