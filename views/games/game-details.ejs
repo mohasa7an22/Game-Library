@@ -1,29 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    <%- include('../partials/navbar') %>
-    <h1>Game Details</h1>
+  <%- include('../partials/navbar') %>
+  <h1>Game Details</h1>
 
-    <p>Name: <%= game.name %></p>
-    <% if(game.isItFinished) {%>
-        <p>Game is finished !</p>
-    <%} else{ %>
-        <p>You did not finish the game!</p>
+  <p>Name: <%= game.name %></p>
+  <p>Genre:<%= game.genre %></p>
+  <p><%= game.image %></p>
+  <p>Platform:<%= game.platform %></p>
+  <p>Status:<%= game.status %></p>
+  <p>Owner: <%= game.owner.username %></p>
 
-    <% }%>
-    <p>Category: <%= game.category %></p>
+  <!-- <h2>Reviews</h2>
+  <% for (let review of game.gameReviews) { %>
+  <p><%= review.text %></p>
+  <% } %> -->
 
-    <form action="/game/<%= game._id %>?_method=DELETE" method="post">
-        <button>Delete game</button>
-    </form>
+  <form action="/game/<%= game._id %>?_method=DELETE" method="post">
+    <button>Delete game</button>
+  </form>
 
-    <form action="/games/<%= game._id %>/edit" method="get">
-        <button>Update game</button>
-    </form>
+  <form action="/games/<%= game._id %>/edit" method="get">
+    <button>Update game</button>
+  </form>
 </body>
+
 </html>
