@@ -13,7 +13,7 @@
 
   <p>Name: <%= game.name %></p>
   <p>Genre:<%= game.genre %></p>
-  <p><%= game.image %></p>
+  <img src="<%= game.image %>" alt="<%=game.image._id%>">
   <p>Platform:<%= game.platform %></p>
   <p>Status:<%= game.status %></p>
   <p>Owner: <%= game.owner.username %></p>

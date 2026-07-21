@@ -11,6 +11,7 @@
 
     <% for(let oneGame of games){ %>
         <p> <%= oneGame.name %> </p>
+        <img src="<%= oneGame.image %>" alt="<%=oneGame.image._id%>">
         <a href="/games/<%=oneGame._id%>">Show Game Details</a>
     <% } %>
 </body>
