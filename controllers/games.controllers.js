@@ -16,7 +16,7 @@ router.post('/', isSignedIn, async (req, res) => {
             name: req.body.name,
             genre: req.body.genre,
             image: req.body.image,
-            platfrom: req.body.platfrom,
+            platform: req.body.platform,
             status: req.body.status,
             owner: req.session.user._id
         })
