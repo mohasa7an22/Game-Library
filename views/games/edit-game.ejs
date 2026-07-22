@@ -9,10 +9,10 @@
     <%- include('../partials/navbar') %>
     <h1>Edit Game</h1>
 
-<form action="/games" method="POST">
+<form action="/games/<%=game._id%>?_method=PUT" method="POST">
 
         <label for="name">Name</label>
-        <input type="text" name="name" id="name" required>
+        <input value="<%=game.name%>" name="name" id="name" type="text">
 
         <label for="genre[]">Genre</label>
         <select name="genre[]" id="genre[]" required>

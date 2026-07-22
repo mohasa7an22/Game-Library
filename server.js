@@ -16,7 +16,7 @@ const passUserToView = require("./middleware/pass-user-to-view.js");
 const authController = require("./controllers/auth.controllers.js");
 const indexController = require("./controllers/index.controllers.js");
 const gamesController = require("./controllers/games.controllers.js")
-
+const reviewsController = require('./controllers/reviews.controllers.js')
 // Middleware
 app.use(express.static('public')) // my app will serve all static files from public folder
 app.use(express.urlencoded({ extended: false }));
@@ -57,6 +57,7 @@ app.use(passUserToView)
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/games', gamesController)
+app.use('reviews', reviewsController)
 
 
 

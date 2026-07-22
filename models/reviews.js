@@ -28,6 +28,6 @@ const reviewSchema = new mongoose.Schema({
 }, { timestamps: true })
 
 // model
-const Review = mongoose.model('Entry', reviewSchema)
+const Review = mongoose.model('Review', reviewSchema)
 
 module.exports = Review
