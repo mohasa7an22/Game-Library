@@ -1,6 +1,5 @@
 const router = require("express").Router()
 const Games = require('../models/games')
-// const User = require('../models/User')
 const Review = require('../models/reviews')
 const isSignedIn = require("../middleware/is-signed-in")
 
