@@ -9,10 +9,13 @@
     <%- include('../partials/navbar') %>
     <h1>All Games</h1>
 
-    <% for(let oneGame of games){ %>
-        <p> <%= oneGame.name %> </p>
-        <img src="<%= oneGame.image %>" alt="<%=oneGame.name%>">
-        <a href="/games/<%=oneGame._id%>">Show Game Details</a>
+    <% for (let ownerName in gamesByOwner) { %>
+        <h2><%= ownerName %></h2>
+        <% for (let oneGame of gamesByOwner[ownerName]) { %>
+            <p> <%= oneGame.name %> </p>
+            <img src="<%= oneGame.image %>" alt="<%= oneGame.name %>">
+            <a href="/games/<%= oneGame._id %>">Show Game Details</a>
+        <% } %>
     <% } %>
 </body>
 </html>

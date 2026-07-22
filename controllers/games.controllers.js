@@ -31,24 +31,38 @@ router.post('/', isSignedIn, async (req, res) => {
 // Read Routes
 
 router.get('/', async (req, res) => {
-    const allGames = await Games.find()
-    res.render('games/all-games.ejs', { games: allGames })
+    const allGames = await Games.find().populate('owner')
+    const gamesByOwner = {}
+    for (let game of allGames) {
+        const ownerName = game.owner.username
+        if (!gamesByOwner[ownerName]) {
+            gamesByOwner[ownerName] = []
+        }
+        gamesByOwner[ownerName].push(game)
+    }
+    res.render('games/all-games.ejs', { gamesByOwner })
 })
 
 
 router.get('/:id', async (req, res) => {
     const foundGame = await Games.findById(req.params.id)
-    .populate('owner')
-    .populate({
-        path: 'gameReviews',
-        populate: { path: 'owner' }
-    })
+        .populate('owner')
+        .populate({
+            path: 'gameReviews',
+            populate: { path: 'owner' }
+        })
     res.render('games/game-details.ejs', { game: foundGame })
 })
 
 // new commit
 
 router.delete('/:id', isSignedIn, async (req, res) => {
+    const foundGame = await Games.findById(req.params.id)
+
+    if (!foundGame.owner.equals(req.session.user._id)) {
+        return res.redirect('/games')
+    }
+
     await Games.findByIdAndDelete(req.params.id)
     res.redirect('/games')
 })
@@ -57,14 +71,24 @@ router.delete('/:id', isSignedIn, async (req, res) => {
 
 
 router.get('/:id/edit', isSignedIn, async (req, res) => {
-    const foundGames = await Games.findById(req.params.id)
-    res.render('games/edit-game.ejs', { game: foundGames })
+    const foundGame = await Games.findById(req.params.id)
+
+    if (!foundGame.owner.equals(req.session.user._id)) {
+        return res.redirect('/games')
+    }
+
+    res.render('games/edit-game.ejs', { game: foundGame })
 })
 
 
-router.put('/:id', isSignedIn, async (req, res,) => {
+router.put('/:id', isSignedIn, async (req, res) => {
+    const foundGame = await Games.findById(req.params.id)
+
+    if (!foundGame.owner.equals(req.session.user._id)) {
+        return res.redirect('/games')
+    }
+
     const updatedGame = await Games.findByIdAndUpdate(req.params.id, req.body)
     res.redirect('/games')
 })
-
 module.exports = router
