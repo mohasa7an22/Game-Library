@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
     res.render('games/game-details.ejs', { game: foundGame })
 })
 
-
+// new commit
 
 router.delete('/:id', isSignedIn, async (req, res) => {
     await Games.findByIdAndDelete(req.params.id)
