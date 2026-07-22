@@ -144,33 +144,41 @@ h3 {
 }
 
 .navbar {
+    background-color: #35393C;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px 32px;
-    background: #35393C;
-    border-bottom: 1px solid #68324C;
+    padding: 0.75rem 2rem;
+    border-bottom: 2px solid #68324C;
 }
 
-.navbar .nav-brand a {
-    font-size: 18px;
-    font-weight: 700;
-    color: #A4D8FF;
-    text-decoration: none;
-}
-
-.navbar .nav-links {
+.nav-brand {
     display: flex;
     align-items: center;
-    gap: 16px;
 }
 
-.navbar .nav-links a {
-    color: #77DBE9;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.15s ease;
+.nav-logo {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.2s ease;
+}
+
+.nav-logo:hover {
+    transform: scale(1.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: #A4D8FF;
+    font-weight: 600;
 }
 
 .navbar .nav-links a:hover {
