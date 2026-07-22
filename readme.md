@@ -25,10 +25,8 @@ Game Library lets users sign up, log in, and build out a collection of games wit
 - morgan
 - dotenv
 ## Getting Started
- 
-[Deployed App](#) *(add link once deployed)*
- 
-[Trello / Planning Board](#) *(optional)*
+
+https://game-library-ibyb.onrender.com/
  
 ### Installation
  
