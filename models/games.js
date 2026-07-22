@@ -10,7 +10,7 @@ const gamesSchema = new mongoose.Schema({
     genre:{
         type: String,
         required: true,
-        enum: ["Action", "Platform", "Shooter", "Fighting", "Beat'em up ", "stealth","Survival", "Rhythm", "Battle Royale", "MetroidVania", "Adventure", "Visual Novel", "Puzzle", "RPG", "Horror", "Rougelikes", "Rougelites", "Soulslike","Simulation", "Tower Defense", "Racing", "Indie", "Gacha","Party"]
+        enum: ["Action", "Platform","Sandbox", "Shooter", "Fighting", "Beat'em up ", "stealth","Survival", "Rhythm", "Battle Royale", "MetroidVania", "Adventure", "Visual Novel", "Puzzle", "RPG", "Horror", "Rougelikes", "Rougelites", "Soulslike","Simulation", "Tower Defense", "Racing", "Indie", "Gacha","Party"]
     },
     image:{
         type:String
@@ -18,7 +18,7 @@ const gamesSchema = new mongoose.Schema({
     platform:{
         type: String,
         required:true,
-        enum:["Steam", "Epic Games", "Gog", "Rockstar","Playstation 1","Playstation 2","Playstation 3", "Playstation 4", "Playstation 5", "Xbox 1", "Xbox series X", "Nintendo Switch", "Nintendo Switch 2"]
+        enum:["Steam", "Epic Games", "Gog", "Rockstar","Microsoft","Playstation 1","Playstation 2","Playstation 3", "Playstation 4", "Playstation 5", "Xbox 1", "Xbox series X", "Nintendo Switch", "Nintendo Switch 2"]
     },
     status:{
         type: String,
