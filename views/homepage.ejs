@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-</head>
-<body>
-    <%- include('./partials/navbar') %>
 
-    <h1>Welcome to my Website</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <%- include('./partials/navbar') %>
+
+  <main class="hero-section">
+    <h1>Welcome to the Game Library</h1>
+    <p>Track your gaming backlog, save your progress, and share your reviews.</p>
+    <nav class="hero-actions">
+      <a href="/games" class="btn">Browse Games</a>
+      <% if (!user) { %>
+      <a href="/auth/sign-up" class="btn btn-secondary">Get Started</a>
+      <% } %>
+    </nav>
+  </main>
 </body>
+
 </html>

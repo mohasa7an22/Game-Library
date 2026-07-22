@@ -1,25 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write Review</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
+  <main class="form-container">
     <h1>Write a Review</h1>
 
     <form action="/games/<%= game._id %>/reviews" method="POST">
-
+      <p class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title" id="title" maxlength="50" required>
+      </p>
 
+      <p class="form-group">
         <label for="reviewBody">Review</label>
-        <textarea name="reviewBody" id="reviewBody" maxlength="350"></textarea>
+        <textarea name="reviewBody" id="reviewBody" rows="5" maxlength="350"></textarea>
+      </p>
 
-        <button type="submit">Submit Review</button>
-
+      <button type="submit" class="btn">Submit Review</button>
     </form>
+  </main>
 </body>
+
 </html>
-<!-- new commit -->

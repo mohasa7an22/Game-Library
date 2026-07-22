@@ -1,13 +1,16 @@
-<nav>
-    
-    <a href="/">Homepage</a>
-    <% if (user){ %>
-    <a href="/auth/sign-out">Logout</a>
-
-    <% } else{ %>
-    <a href="/auth/sign-up">Sign up</a>
-    <a href="/auth/sign-in">Login</a>
-
+<nav class="navbar">
+  <header class="nav-brand">
+    <a href="/">Game Library</a>
+  </header>
+  <section class="nav-links">
+    <a href="/">Home</a>
+    <a href="/games">All Games</a>
+    <% if (user) { %>
+    <a href="/games/new">Add Game</a>
+    <a href="/auth/sign-out" class="nav-btn">Sign Out</a>
+    <% } else { %>
+    <a href="/auth/sign-in">Sign In</a>
+    <a href="/auth/sign-up" class="nav-btn">Sign Up</a>
     <% } %>
-    
+  </section>
 </nav>

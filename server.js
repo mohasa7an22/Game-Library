@@ -61,7 +61,6 @@ app.use('/games/:gameId/reviews', reviewsController)
 
 
 
-// new commit
 // connect to database and listen on Port 3000
 async function startServer() {
     const PORT = process.env.PORT || 3000;

@@ -4,39 +4,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title><%= game.name %></title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
   <%- include('../partials/navbar') %>
-  <h1>Game Details</h1>
+  <main>
+    <article class="details-container">
+      <figure class="details-poster">
+        <img src="<%= game.image %>" alt="<%= game.name %>">
+      </figure>
 
-  <p>Name: <%= game.name %></p>
-  <p>Genre:<%= game.genre %></p>
-  <img src="<%= game.image %>" alt="<%=game.name%>">
-  <p>Platform:<%= game.platform %></p>
-  <p>Status:<%= game.status %></p>
-  <p>Owner: <%= game.owner.username %></p>
-<h2>Reviews</h2>
-<a href="/games/<%= game._id %>/reviews/newReview">Write a review</a>
+      <section class="details-info">
+        <h1><%= game.name %></h1>
+        <p class="game-meta">Genre: <span><%= game.genre %></span></p>
+        <p class="game-meta">Platform: <span><%= game.platform %></span></p>
+        <p class="game-meta">Status: <span class="status-badge status-<%= game.status ? game.status.replace(/\s+/g, '-') : '' %>"><%= game.status %></span></p>
+        <p class="game-meta">Owner: <span><%= game.owner.username %></span></p>
 
-<% for (let review of game.gameReviews) { %>
-    <div>
-        <h3><%= review.title %></h3>
-        <p><%= review.reviewBody %></p>
-        <p> Status:<%= review.reviewStatus %></p>
-        <p>By: <%= review.owner.username %></p>
-        
-    </div>
-<% } %>
+        <menu class="action-buttons">
+          <% if (currentUser) { %>
+          <% if (game.savedBy.some(userId => userId.equals(currentUser._id))) { %>
+          <form action="/games/<%= game._id %>/unsave?_method=POST" method="POST">
+            <button type="submit" class="btn btn-secondary">Remove from my list</button>
+          </form>
+          <% } else { %>
+          <form action="/games/<%= game._id %>/save" method="POST">
+            <button type="submit" class="btn">Add to my list</button>
+          </form>
+          <% } %>
 
-  <form action="/games/<%= game._id %>?_method=DELETE" method="post">
-    <button>Delete game</button>
-  </form>
+          <% if (game.owner.equals(currentUser._id)) { %>
+          <form action="/games/<%= game._id %>/edit" method="GET">
+            <button type="submit" class="btn btn-secondary">Update game</button>
+          </form>
 
-  <form action="/games/<%= game._id %>/edit" method="get">
-    <button>Update game</button>
-  </form>
+          <form action="/games/<%= game._id %>?_method=DELETE" method="POST">
+            <button type="submit" class="btn btn-danger">Delete game</button>
+          </form>
+          <% } %>
+          <% } %>
+        </menu>
+      </section>
+    </article>
+
+    <section class="reviews-section">
+      <header class="reviews-header">
+        <h2>Reviews</h2>
+        <% if (currentUser) { %>
+        <a href="/games/<%= game._id %>/reviews/newReview" class="btn">Write a review</a>
+        <% } %>
+      </header>
+
+      <section class="reviews-list">
+        <% for (let review of game.gameReviews) { %>
+        <article class="review-card">
+          <h3><%= review.title %></h3>
+          <p class="review-body"><%= review.reviewBody %></p>
+          <p class="game-meta">Status: <%= review.reviewStatus %> | By: <%= review.owner.username %></p>
+        </article>
+        <% } %>
+      </section>
+    </section>
+  </main>
 </body>
-<!-- new commit -->
+
 </html>

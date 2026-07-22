@@ -1,22 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
+  <main>
     <h1>All Games</h1>
 
-    <% for (let ownerName in gamesByOwner) { %>
-        <h2><%= ownerName %></h2>
-        <% for (let oneGame of gamesByOwner[ownerName]) { %>
-            <p> <%= oneGame.name %> </p>
-            <img src="<%= oneGame.image %>" alt="<%= oneGame.name %>">
-            <a href="/games/<%= oneGame._id %>">Show Game Details</a>
+    <% for (let saverName in gamesBySaver) { %>
+    <section class="owner-section" aria-labelledby="saved-<%= saverName.replace(/ /g, '-') %>">
+      <h2 class="owner-heading" id="saved-<%= saverName.replace(/ /g, '-') %>">Saved by <%= saverName %></h2>
+
+      <ul class="game-grid">
+        <% for (let oneGame of gamesBySaver[saverName]) { %>
+        <li>
+          <a href="/games/<%= oneGame._id %>" class="game-card">
+            <figure class="poster">
+              <img src="<%= oneGame.image %>" alt="<%= oneGame.name %>">
+              <span class="status-pill status-<%= oneGame.status.replace(/ /g, '-') %>">
+                <%= oneGame.status %>
+              </span>
+              <figcaption>
+                <span class="game-title"><%= oneGame.name %></span>
+                <span class="game-meta"><%= oneGame.platform %></span>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
         <% } %>
+      </ul>
+    </section>
     <% } %>
+
+    <% for (let ownerName in gamesByOwner) { %>
+    <section class="owner-section" aria-labelledby="owner-<%= ownerName.replace(/ /g, '-') %>">
+      <h2 class="owner-heading" id="owner-<%= ownerName.replace(/ /g, '-') %>"><%= ownerName %>'s Games</h2>
+
+      <ul class="game-grid">
+        <% for (let oneGame of gamesByOwner[ownerName]) { %>
+        <li>
+          <a href="/games/<%= oneGame._id %>" class="game-card">
+            <figure class="poster">
+              <img src="<%= oneGame.image %>" alt="<%= oneGame.name %>">
+              <span class="status-pill status-<%= oneGame.status.replace(/ /g, '-') %>">
+                <%= oneGame.status %>
+              </span>
+              <figcaption>
+                <span class="game-title"><%= oneGame.name %></span>
+                <span class="game-meta"><%= oneGame.platform %></span>
+              </figcaption>
+            </figure>
+          </a>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+    <% } %>
+  </main>
 </body>
+
 </html>
-<!-- new commit -->

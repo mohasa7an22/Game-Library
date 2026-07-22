@@ -29,10 +29,10 @@ const gamesSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"
     },
-    savedBy:{
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
+    savedBy:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+    }],
     gameReviews:[{
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "Review"

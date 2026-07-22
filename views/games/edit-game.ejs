@@ -1,79 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit <%= game.name %></title>
+  <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
-    <%- include('../partials/navbar') %>
+  <%- include('../partials/navbar') %>
+  <main class="form-container">
     <h1>Edit Game</h1>
 
-<form action="/games/<%=game._id%>?_method=PUT" method="POST">
-
+    <form action="/games/<%=game._id%>?_method=PUT" method="POST">
+      <p class="form-group">
         <label for="name">Name</label>
-        <input value="<%=game.name%>" name="name" id="name" type="text">
+        <input value="<%=game.name%>" name="name" id="name" type="text" required>
+      </p>
 
+      <p class="form-group">
         <label for="genre">Genre</label>
         <select name="genre" id="genre" required>
-            <option value="" disabled>Select a genre</option>
-            <option value="Action" <%= game.genre === 'Action' ? 'selected' : '' %>>Action</option>
-            <option value="Platform" <%= game.genre === 'Platform' ? 'selected' : '' %>>Platform</option>
-            <option value="Shooter" <%= game.genre === 'Shooter' ? 'selected' : '' %>>Shooter</option>
-            <option value="Fighting" <%= game.genre === 'Fighting' ? 'selected' : '' %>>Fighting</option>
-            <option value="Beat'em up " <%= game.genre === "Beat'em up " ? 'selected' : '' %>>Beat'em up</option>
-            <option value="stealth" <%= game.genre === 'stealth' ? 'selected' : '' %>>Stealth</option>
-            <option value="Survival" <%= game.genre === 'Survival' ? 'selected' : '' %>>Survival</option>
-            <option value="Rhythm" <%= game.genre === 'Rhythm' ? 'selected' : '' %>>Rhythm</option>
-            <option value="Battle Royale" <%= game.genre === 'Battle Royale' ? 'selected' : '' %>>Battle Royale</option>
-            <option value="MetroidVania" <%= game.genre === 'MetroidVania' ? 'selected' : '' %>>MetroidVania</option>
-            <option value="Adventure" <%= game.genre === 'Adventure' ? 'selected' : '' %>>Adventure</option>
-            <option value="Visual Novel" <%= game.genre === 'Visual Novel' ? 'selected' : '' %>>Visual Novel</option>
-            <option value="Puzzle" <%= game.genre === 'Puzzle' ? 'selected' : '' %>>Puzzle</option>
-            <option value="RPG" <%= game.genre === 'RPG' ? 'selected' : '' %>>RPG</option>
-            <option value="Horror" <%= game.genre === 'Horror' ? 'selected' : '' %>>Horror</option>
-            <option value="Rougelikes" <%= game.genre === 'Rougelikes' ? 'selected' : '' %>>Rougelikes</option>
-            <option value="Rougelites" <%= game.genre === 'Rougelites' ? 'selected' : '' %>>Rougelites</option>
-            <option value="Soulslike" <%= game.genre === 'Soulslike' ? 'selected' : '' %>>Soulslike</option>
-            <option value="Simulation" <%= game.genre === 'Simulation' ? 'selected' : '' %>>Simulation</option>
-            <option value="Tower Defense" <%= game.genre === 'Tower Defense' ? 'selected' : '' %>>Tower Defense</option>
-            <option value="Racing" <%= game.genre === 'Racing' ? 'selected' : '' %>>Racing</option>
-            <option value="Indie" <%= game.genre === 'Indie' ? 'selected' : '' %>>Indie</option>
-            <option value="Gacha" <%= game.genre === 'Gacha' ? 'selected' : '' %>>Gacha</option>
-            <option value="Party" <%= game.genre === 'Party' ? 'selected' : '' %>>Party</option>
+          <option value="" disabled>Select a genre</option>
+          <option value="Action" <%= game.genre === 'Action' ? 'selected' : '' %>>Action</option>
+          <option value="Platform" <%= game.genre === 'Platform' ? 'selected' : '' %>>Platform</option>
+          <option value="Shooter" <%= game.genre === 'Shooter' ? 'selected' : '' %>>Shooter</option>
+          <option value="Fighting" <%= game.genre === 'Fighting' ? 'selected' : '' %>>Fighting</option>
+          <option value="Beat'em up " <%= game.genre === "Beat'em up " ? 'selected' : '' %>>Beat'em up</option>
+          <option value="stealth" <%= game.genre === 'stealth' ? 'selected' : '' %>>Stealth</option>
+          <option value="Survival" <%= game.genre === 'Survival' ? 'selected' : '' %>>Survival</option>
+          <option value="Rhythm" <%= game.genre === 'Rhythm' ? 'selected' : '' %>>Rhythm</option>
+          <option value="Battle Royale" <%= game.genre === 'Battle Royale' ? 'selected' : '' %>>Battle Royale</option>
+          <option value="MetroidVania" <%= game.genre === 'MetroidVania' ? 'selected' : '' %>>MetroidVania</option>
+          <option value="Adventure" <%= game.genre === 'Adventure' ? 'selected' : '' %>>Adventure</option>
+          <option value="Visual Novel" <%= game.genre === 'Visual Novel' ? 'selected' : '' %>>Visual Novel</option>
+          <option value="Puzzle" <%= game.genre === 'Puzzle' ? 'selected' : '' %>>Puzzle</option>
+          <option value="RPG" <%= game.genre === 'RPG' ? 'selected' : '' %>>RPG</option>
+          <option value="Horror" <%= game.genre === 'Horror' ? 'selected' : '' %>>Horror</option>
+          <option value="Rougelikes" <%= game.genre === 'Rougelikes' ? 'selected' : '' %>>Rougelikes</option>
+          <option value="Rougelites" <%= game.genre === 'Rougelites' ? 'selected' : '' %>>Rougelites</option>
+          <option value="Soulslike" <%= game.genre === 'Soulslike' ? 'selected' : '' %>>Soulslike</option>
+          <option value="Simulation" <%= game.genre === 'Simulation' ? 'selected' : '' %>>Simulation</option>
+          <option value="Tower Defense" <%= game.genre === 'Tower Defense' ? 'selected' : '' %>>Tower Defense</option>
+          <option value="Racing" <%= game.genre === 'Racing' ? 'selected' : '' %>>Racing</option>
+          <option value="Indie" <%= game.genre === 'Indie' ? 'selected' : '' %>>Indie</option>
+          <option value="Gacha" <%= game.genre === 'Gacha' ? 'selected' : '' %>>Gacha</option>
+          <option value="Party" <%= game.genre === 'Party' ? 'selected' : '' %>>Party</option>
         </select>
+      </p>
 
+      <p class="form-group">
         <label for="image">Image URL</label>
         <input type="text" name="image" id="image" value="<%= game.image %>">
+      </p>
 
+      <p class="form-group">
         <label for="platform">Platform</label>
         <select name="platform" id="platform" required>
-            <option value="" disabled>Select a platform</option>
-            <option value="Steam" <%= game.platform === 'Steam' ? 'selected' : '' %>>Steam</option>
-            <option value="Epic Games" <%= game.platform === 'Epic Games' ? 'selected' : '' %>>Epic Games</option>
-            <option value="Gog" <%= game.platform === 'Gog' ? 'selected' : '' %>>Gog</option>
-            <option value="Rockstar" <%= game.platform === 'Rockstar' ? 'selected' : '' %>>Rockstar</option>
-            <option value="Playstation 1" <%= game.platform === 'Playstation 1' ? 'selected' : '' %>>Playstation 1</option>
-            <option value="Playstation 2" <%= game.platform === 'Playstation 2' ? 'selected' : '' %>>Playstation 2</option>
-            <option value="Playstation 3" <%= game.platform === 'Playstation 3' ? 'selected' : '' %>>Playstation 3</option>
-            <option value="Playstation 4" <%= game.platform === 'Playstation 4' ? 'selected' : '' %>>Playstation 4</option>
-            <option value="Playstation 5" <%= game.platform === 'Playstation 5' ? 'selected' : '' %>>Playstation 5</option>
-            <option value="Xbox 1" <%= game.platform === 'Xbox 1' ? 'selected' : '' %>>Xbox 1</option>
-            <option value="Xbox series X" <%= game.platform === 'Xbox series X' ? 'selected' : '' %>>Xbox series X</option>
-            <option value="Nintendo Switch" <%= game.platform === 'Nintendo Switch' ? 'selected' : '' %>>Nintendo Switch</option>
-            <option value="Nintendo Switch 2" <%= game.platform === 'Nintendo Switch 2' ? 'selected' : '' %>>Nintendo Switch 2</option>
+          <option value="" disabled>Select a platform</option>
+          <option value="Steam" <%= game.platform === 'Steam' ? 'selected' : '' %>>Steam</option>
+          <option value="Epic Games" <%= game.platform === 'Epic Games' ? 'selected' : '' %>>Epic Games</option>
+          <option value="Gog" <%= game.platform === 'Gog' ? 'selected' : '' %>>Gog</option>
+          <option value="Rockstar" <%= game.platform === 'Rockstar' ? 'selected' : '' %>>Rockstar</option>
+          <option value="Playstation 1" <%= game.platform === 'Playstation 1' ? 'selected' : '' %>>Playstation 1</option>
+          <option value="Playstation 2" <%= game.platform === 'Playstation 2' ? 'selected' : '' %>>Playstation 2</option>
+          <option value="Playstation 3" <%= game.platform === 'Playstation 3' ? 'selected' : '' %>>Playstation 3</option>
+          <option value="Playstation 4" <%= game.platform === 'Playstation 4' ? 'selected' : '' %>>Playstation 4</option>
+          <option value="Playstation 5" <%= game.platform === 'Playstation 5' ? 'selected' : '' %>>Playstation 5</option>
+          <option value="Xbox 1" <%= game.platform === 'Xbox 1' ? 'selected' : '' %>>Xbox 1</option>
+          <option value="Xbox series X" <%= game.platform === 'Xbox series X' ? 'selected' : '' %>>Xbox series X</option>
+          <option value="Nintendo Switch" <%= game.platform === 'Nintendo Switch' ? 'selected' : '' %>>Nintendo Switch</option>
+          <option value="Nintendo Switch 2" <%= game.platform === 'Nintendo Switch 2' ? 'selected' : '' %>>Nintendo Switch 2</option>
         </select>
+      </p>
 
+      <p class="form-group">
         <label for="status">Status</label>
         <select name="status" id="status" required>
-            <option value="" disabled>Select a status</option>
-            <option value="Did not start" <%= game.status === 'Did not start' ? 'selected' : '' %>>Did not start</option>
-            <option value="In Progress" <%= game.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
-            <option value="Dropped" <%= game.status === 'Dropped' ? 'selected' : '' %>>Dropped</option>
-            <option value="Finished" <%= game.status === 'Finished' ? 'selected' : '' %>>Finished</option>
+          <option value="" disabled>Select a status</option>
+          <option value="Did not start" <%= game.status === 'Did not start' ? 'selected' : '' %>>Did not start</option>
+          <option value="In Progress" <%= game.status === 'In Progress' ? 'selected' : '' %>>In Progress</option>
+          <option value="Dropped" <%= game.status === 'Dropped' ? 'selected' : '' %>>Dropped</option>
+          <option value="Finished" <%= game.status === 'Finished' ? 'selected' : '' %>>Finished</option>
         </select>
+      </p>
 
-        <button type="submit">Update game</button>
+      <button type="submit" class="btn">Update Game</button>
     </form>
+  </main>
 </body>
+
 </html>
