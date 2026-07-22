@@ -39,7 +39,10 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     const foundGame = await Games.findById(req.params.id)
     .populate('owner')
-    .populate('gameReviews')
+    .populate({
+        path: 'gameReviews',
+        populate: { path: 'owner' }
+    })
     res.render('games/game-details.ejs', { game: foundGame })
 })
 

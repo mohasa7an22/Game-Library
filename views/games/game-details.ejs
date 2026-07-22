@@ -13,15 +13,21 @@
 
   <p>Name: <%= game.name %></p>
   <p>Genre:<%= game.genre %></p>
-  <img src="<%= game.image %>" alt="<%=game.image._id%>">
+  <img src="<%= game.image %>" alt="<%=game.name%>">
   <p>Platform:<%= game.platform %></p>
   <p>Status:<%= game.status %></p>
   <p>Owner: <%= game.owner.username %></p>
+<h2>Reviews</h2>
+<a href="/games/<%= game._id %>/reviews/newReview">Write a review</a>
 
-  <!-- <h2>Reviews</h2>
-  <% for (let review of game.gameReviews) { %>
-  <p><%= review.text %></p>
-  <% } %> -->
+<% for (let review of game.gameReviews) { %>
+    <div>
+        <h3><%= review.title %></h3>
+        <p><%= review.reviewBody %></p>
+        <p>By: <%= review.owner.username %></p>
+        <a href="/games/<%= game._id %>/reviews/<%= review._id %>">View review</a>
+    </div>
+<% } %>
 
   <form action="/games/<%= game._id %>?_method=DELETE" method="post">
     <button>Delete game</button>

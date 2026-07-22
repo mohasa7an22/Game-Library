@@ -57,7 +57,7 @@ app.use(passUserToView)
 app.use('/auth',authController)
 app.use('/',indexController)
 app.use('/games', gamesController)
-app.use('reviews', reviewsController)
+app.use('/games/:gameId/reviews', reviewsController)
 
 
 
