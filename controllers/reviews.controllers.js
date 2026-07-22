@@ -16,6 +16,7 @@ router.post('/', isSignedIn, async (req, res) => {
         const createdReview = await Review.create({
             title: req.body.title,
             reviewBody: req.body.reviewBody,
+            reviewStatus: game.status,
             owner: req.session.user._id,
             reviewedGame: game._id
         })
@@ -36,32 +37,4 @@ router.get('/:reviewId', isSignedIn, async (req, res) => {
     res.render('reviews/review-edit.ejs', { review: foundReview })
 })
 
-// Update
-router.put('/:reviewId', isSignedIn, async (req, res) => {
-    const review = await Review.findById(req.params.reviewId)
-
-    if (!review.owner.equals(req.session.user._id)) {
-        return res.send("You don't have permission to do that")
-    }
-
-    await Review.findByIdAndUpdate(req.params.reviewId, req.body)
-    res.redirect(`/games/${req.params.gameId}`)
-})
-
-// Delete
-router.delete('/:reviewId', isSignedIn, async (req, res) => {
-    const review = await Review.findById(req.params.reviewId)
-
-    if (!review.owner.equals(req.session.user._id)) {
-        return res.send("You don't have permission to do that")
-    }
-
-    await Review.findByIdAndDelete(req.params.reviewId)
-    await Games.findByIdAndUpdate(req.params.gameId, {
-        $pull: { gameReviews: req.params.reviewId }
-    })
-    res.redirect(`/games/${req.params.gameId}`)
-})
-
 module.exports = router
-// new commit

@@ -11,11 +11,10 @@ const reviewSchema = new mongoose.Schema({
         type: String,
         maxLength: 350,
     },
-    // reviewStatus: {
-    //     type: String,
-    //     required: true,
-    //     enum:["Did not start","In Progress", "Dropped","Finished"]
-    // },
+     reviewStatus: {
+         type: String,
+         required: true,
+     },
     owner: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

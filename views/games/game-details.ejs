@@ -24,6 +24,7 @@
     <div>
         <h3><%= review.title %></h3>
         <p><%= review.reviewBody %></p>
+        <p> Status:<%= review.reviewStatus %></p>
         <p>By: <%= review.owner.username %></p>
         <a href="/games/<%= game._id %>/reviews/<%= review._id %>">View review</a>
     </div>
