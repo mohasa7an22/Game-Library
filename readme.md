@@ -9,7 +9,9 @@ Game Library lets users sign up, log in, and build out a collection of games wit
  
 ## Screenshots
  
-*(Add screenshots here)*
+<img width="1920" height="796" alt="image" src="https://github.com/user-attachments/assets/b3773d35-06ce-47b2-be10-86df58c7dc7e" />
+<img width="1634" height="761" alt="image" src="https://github.com/user-attachments/assets/cee04ba6-37bb-435d-b6b1-7e9b85c1af1b" />
+
  
 ## Technologies Used
  
@@ -78,24 +80,8 @@ https://game-library-ibyb.onrender.com/
 24. As a user, I want to be able to search for a game by name.
 ## Database Design (ERD)
  
-**User**
-- username
-- password (hashed)
-**Game**
-- name
-- genre
-- image
-- platform
-- status (Did not start / In Progress / Dropped / Finished)
-- owner → ref: User
-- savedBy → [ref: User]
-- gameReviews → [ref: Review]
-**Review**
-- title
-- reviewBody
-- reviewStatus
-- owner → ref: User
-- reviewedGame → ref: Game
+<img width="830" height="530" alt="image" src="https://github.com/user-attachments/assets/8539158b-1951-4fce-8229-39014e7137b3" />
+
 
 
 
