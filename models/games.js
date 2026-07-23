@@ -23,7 +23,7 @@ const gamesSchema = new mongoose.Schema({
     status:{
         type: String,
         required: true,
-        enum: ["Did not start","In Progress", "Dropped","Finished"]
+        enum: ["Did not start","In Progress", "Dropped","Finished", "Online game"]
     },
     owner:{
         type: mongoose.Schema.Types.ObjectId,
